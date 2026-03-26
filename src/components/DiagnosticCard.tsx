@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-// Ek hi baar export aur props define kiye hain
+
 export default function DiagnosticCard({ finding, onFixSuccess }: any) {
   const [isFixing, setIsFixing] = useState(false);
   const [step, setStep] = useState(0);
@@ -13,23 +13,23 @@ export default function DiagnosticCard({ finding, onFixSuccess }: any) {
     INFO: "border-blue-400 text-blue-400 shadow-[0_0_15px_rgba(96,165,250,0.2)]"
   };
 
-  // Dono logics ko merge kar diya hai: Terminal animation + Magic Update
+  
   const runFix = () => {
     setIsFixing(true);
     setStep(1);
     
-    // Step 1: Init
+  
     setTimeout(() => setStep(2), 800);
     
-    // Step 2: Patching
+    
     setTimeout(() => setStep(3), 1600);
     
-    // Step 3: Success aur Parent ko batana
+    
     setTimeout(() => {
       setIsFixing(false);
       setStep(0);
       
-      // MAGIC YAHAN HAI: Ye function page.tsx ko batayega ki data badal do
+      
       if (onFixSuccess) {
         onFixSuccess(finding.category);
       }

@@ -122,10 +122,10 @@ export async function POST(req: NextRequest) {
     const criticalCount = findings.filter(f => f.score === 'CRITICAL').length;
     const warningCount = findings.filter(f => f.score === 'WARNING').length;
 
-    // Har Critical par -15, har Warning par -7
+    
     const calculatedHealth = Math.max(0, 100 - (criticalCount * 15) - (warningCount * 7));
 
-    // Ek hi final JSON return kar rahe hain
+    
     return NextResponse.json({
       findings,
       overallHealth: calculatedHealth

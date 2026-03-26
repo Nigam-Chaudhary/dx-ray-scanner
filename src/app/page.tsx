@@ -42,7 +42,7 @@ export default function DXRayHome() {
 
     setResults(updatedResults);
 
-    // 2. Health Score ko live update karo based on NEW HEALTHY results
+    
     const crit = updatedResults.filter((f: any) => f.score === "CRITICAL").length;
     const warn = updatedResults.filter((f: any) => f.score === "WARNING").length;
     
@@ -50,7 +50,7 @@ export default function DXRayHome() {
     setHealthScore(newScore);
   };
 
-  // --- SHARE REPORT FUNCTION ---
+  
   const shareReport = () => {
     const fixedCount = results.filter(f => f.message.includes("[FIXED]")).length;
     const reportText = `🚀 DX-Ray Scan Summary\nProject: ${url}\nInitial Health: ${initialScore}%\nImproved Health: ${healthScore}%\nIssues Resolved: ${fixedCount}/8\n#DXRay #DevTools`;
